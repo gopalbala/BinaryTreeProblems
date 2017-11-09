@@ -31,7 +31,7 @@ public class RootToLeafPaths {
             return;
         path[index] = root.data;
         if (root.left == null && root.right == null) {
-            for (int i = 0; i <=ß index; i++) {
+            for (int i = 0; i <= index; i++) {
                 System.out.print(path[i] + " ");
             }
             System.out.println();
