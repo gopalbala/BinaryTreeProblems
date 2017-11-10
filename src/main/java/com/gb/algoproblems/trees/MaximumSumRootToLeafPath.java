@@ -1,9 +1,13 @@
 package com.gb.algoproblems.trees;
 
+import java.util.Arrays;
+
 /**
- * Created by gbalasubramanian on 09/11/17.
+ * Created by gbalasubramanian on 10/11/17.
  */
-public class RootToLeafPaths {
+
+public class MaximumSumRootToLeafPath {
+    static int max =0;
     public static void main(String[] args) {
         Node A = new Node(100);
         // Level 1
@@ -23,20 +27,24 @@ public class RootToLeafPaths {
         B.right = E;
         C.left = F;
         C.right = G;
-        printRootToLeafPath(A, 0, new int[100]);
+        int sum = 0;// max = 0;
+
+        maximumSum(A, 0, new int[100], sum);
+        System.out.println(max);
     }
 
-    static void printRootToLeafPath(Node root, int index, int[] path) {
+    static void maximumSum(Node root, int index, int[] array, int sum) {
         if (root == null)
             return;
-        path[index] = root.data;
+        array[index] = root.data;
+        sum += root.data;
         if (root.left == null && root.right == null) {
-            for (int i = 0; i <= index; i++) {
-                System.out.print(path[i] + " ");
+            if (sum > max) {
+                max = sum;
             }
-            System.out.println();
+            return;
         }
-        printRootToLeafPath(root.left, index + 1, path);
-        printRootToLeafPath(root.right, index + 1, path);
+        maximumSum(root.left, index + 1, array, sum);
+        maximumSum(root.right, index + 1, array, sum);
     }
 }

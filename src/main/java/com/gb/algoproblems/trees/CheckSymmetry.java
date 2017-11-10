@@ -1,7 +1,7 @@
 package com.gb.algoproblems.trees;
 
 /**
- * Created by fax6 on 24/10/17.
+ * Created by gbalasubramanian on 24/10/17.
  */
 public class CheckSymmetry {
     public static void main(String[] args) {
